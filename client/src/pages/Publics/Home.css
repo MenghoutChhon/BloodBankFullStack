@@ -1,0 +1,105 @@
+.home-bg {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fff5f7 0%, #f0f4ff 100%);
+  box-sizing: border-box;
+}
+
+.home-center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 100%;
+}
+
+.home-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #c1121f;
+  text-align: center;
+  margin-bottom: 1em;
+  letter-spacing: -1px;
+}
+
+.hero-drop {
+  font-size: 2.1rem;
+  vertical-align: middle;
+  margin-left: 0.3em;
+}
+
+.home-desc {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #334155;
+  margin-bottom: 2em;
+  max-width: 500px;
+}
+
+.home-roles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2.7em;
+  flex-wrap: wrap;
+}
+
+.role-card {
+  width: 220px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.16rem;
+  font-weight: 700;
+  border-radius: 15px;
+  border: 2.2px solid #eee;
+  background: #fff;
+  box-shadow: 0 2px 14px 0 rgba(200,0,0,0.09);
+  cursor: pointer;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.15s;
+  margin: 0 4px;
+  outline: none;
+  text-align: center;
+  gap: 0.22em;
+  padding: 0;
+}
+.role-card.donor { border-color: #ef436b; }
+.role-card.donor:hover { border-color: #b91c1c; background: #fff5f7; }
+.role-card.hospital { border-color: #38bdf8; }
+.role-card.hospital:hover { border-color: #0369a1; background: #f0f8ff; }
+
+.role-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.3em;
+  display: block;
+}
+.role-title {
+  display: block;
+  font-size: 1.13rem;
+  color: #232323;
+  font-weight: 600;
+}
+
+.home-footer {
+  margin-top: 2.8em;
+  color: #666;
+  font-size: 0.99rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+  .role-card {
+    width: 95vw;
+    max-width: 330px;
+    height: 90px;
+    font-size: 1rem;
+  }
+}

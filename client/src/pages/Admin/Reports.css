@@ -1,0 +1,15 @@
+/* src/pages/Admin/Reports.css */
+.reports-root {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2.2rem 2rem 2.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px 0 rgba(220,38,38,0.09);
+}
+
+.reports-chart-container {
+  width: 100%;
+  min-height: 320px;
+  margin-bottom: 2.2rem;
+}

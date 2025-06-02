@@ -1,0 +1,47 @@
+.header-container{
+  background: red;
+}
+
+.header-container a {
+  color: white !important;
+}
+
+.header-container a.active{
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-container{
+  position: relative;
+}
+
+.navbar-container > div {
+  position: absolute;
+  right: 5px;
+}
+
+.serviecs-container{
+  background: red;
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Centering utility for full screen forms/pages */
+.centered-container {
+  min-height: 100vh;              /* Take the full viewport height */
+  display: flex;
+  align-items: center;            /* Vertically center */
+  justify-content: center;        /* Horizontally center */
+  background: #f9fafb;            /* Subtle background */
+  padding: 2rem;                  /* Padding for small screens */
+}
+
+.centered-content {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  padding: 2.5rem 2rem;
+  max-width: 450px;               /* Adjust width as needed */
+  width: 100%;
+}

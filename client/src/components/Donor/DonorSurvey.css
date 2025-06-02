@@ -1,0 +1,263 @@
+.donor-landing-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fef3f3 0%, #e0f2fe 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  padding: 2rem 1rem 4rem;
+}
+
+/* This wrapper will center your card both vertically & horizontally */
+.content-wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* so it's at least mostly centered */
+}
+
+/* Main form card */
+.form-card {
+  background-color: #ffffff;
+  max-width: 720px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.15);
+  box-sizing: border-box;
+  margin: 0 auto; /* center horizontally */
+}
+
+.form-card-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-description {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.65rem 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.4);
+}
+
+/* Age input read-only styling */
+input[readonly] {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: default;
+}
+
+/* Submit button */
+.cta-btn.login-btn.donor-survey-btn {
+  width: 100%;
+  padding: 0.85rem 0;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1.75rem;
+}
+
+.cta-btn.login-btn.donor-survey-btn:hover,
+.cta-btn.login-btn.donor-survey-btn:focus {
+  background-color: #b91c1c;
+  outline: none;
+}
+
+/* Thank You Section */
+.text-center {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.donor-survey-checkmark {
+  font-size: 4rem;
+  color: #16a34a;
+  margin-bottom: 1rem;
+}
+
+.donor-survey-instructions {
+  text-align: left;
+  max-width: 480px;
+  margin: 1rem auto 0 auto;
+  padding-left: 1.2rem;
+  color: #4b5563;
+  font-size: 1rem;
+  list-style-type: decimal;
+  line-height: 1.5;
+}
+.donor-survey-instructions li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+  .form-card-title {
+    font-size: 1.75rem;
+  }
+  .cta-btn.login-btn.donor-survey-btn {
+    font-size: 1rem;
+  }
+}
+/* DonorShared.css */
+
+.donor-landing-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #fef3f3 0%, #e0f2fe 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.donor-center-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 80vh;
+  margin: 0;
+  padding: 0;
+}
+
+.donor-banner {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  margin: 2rem auto 2rem auto;
+  border-radius: 28px;
+  box-shadow: 0 8px 32px 0 rgba(220,38,38,0.09);
+  padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+  text-align: center;
+}
+
+.donor-cta-buttons {
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.cta-btn {
+  min-width: 120px;
+  font-size: 1.12rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  padding: 0.85rem 2.1rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 12px 0 rgba(220,38,38,0.08);
+  transition: background 0.15s, box-shadow 0.18s;
+}
+.login-btn {
+  background: #fdecec;
+  color: #dc2626;
+}
+.register-btn {
+  background: #e0f2fe;
+  color: #2563eb;
+}
+.login-btn:hover { background: #fee2e2; }
+.register-btn:hover { background: #bae6fd; }
+
+.donor-features {
+  margin-top: 2.8rem;
+}
+
+.features-list {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.feature-item {
+  background: #fff;
+  padding: 1.7rem 1.3rem 1.2rem 1.3rem;
+  border-radius: 18px;
+  box-shadow: 0 3px 18px 0 rgba(220,38,38,0.07);
+  min-width: 210px;
+  max-width: 260px;
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #dc2626;
+  font-size: 1.12rem;
+}
+
+.feature-desc {
+  font-size: 1rem;
+  color: #374151;
+}
+
+@media (max-width: 950px) {
+  .features-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .donor-banner {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem;
+  }
+}

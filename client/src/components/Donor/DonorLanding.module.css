@@ -1,0 +1,122 @@
+.donor-landing-bg {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #fff 60%, #ffe5e5 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar-inner {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-heart { color: #dc2626; font-size: 1.5rem; }
+.logo-text { font-weight: 700; font-size: 1.2rem; margin-left: 0.5rem; }
+.navbar-links .nav-link {
+  color: #374151;
+  margin: 0 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+.navbar-links .nav-link:hover { color: #dc2626; }
+
+/* Banner */
+.donor-banner {
+  background: #fff;
+  border-radius: 18px;
+  margin: 2rem auto 1rem auto;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 4px 24px rgba(220,38,38,0.10);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+.donor-banner h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.7rem;
+}
+.donor-banner p {
+  color: #4b5563;
+  font-size: 1.1rem;
+  margin-bottom: 1.6rem;
+}
+.donor-cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.cta-btn {
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0.8rem 2.2rem;
+  box-shadow: 0 2px 8px rgba(220,38,38,0.11);
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+.login-btn { background: #dc2626; color: #fff; }
+.login-btn:hover { background: #a21caf; }
+.register-btn { background: #3b82f6; color: #fff; }
+.register-btn:hover { background: #0e7490; }
+
+/* Features */
+.donor-features {
+  margin: 2rem auto 1.5rem auto;
+  max-width: 900px;
+  width: 100%;
+}
+.donor-features h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #b91c1c;
+  margin-bottom: 1.5rem;
+}
+.features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  justify-content: center;
+}
+.feature-item {
+  background: #fff;
+  padding: 1.5rem 1.2rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(220,38,38,0.08);
+  min-width: 220px;
+  max-width: 290px;
+  text-align: center;
+}
+.feature-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+.feature-title { font-weight: 600; color: #dc2626; margin-bottom: 0.5rem; font-size: 1.1rem;}
+.feature-desc { font-size: 1rem; color: #374151; }
+
+/* Footer */
+.donor-footer {
+  margin-top: auto;
+  background: #1f2937;
+  color: #fff;
+  width: 100%;
+  padding: 1.5rem 0 0.6rem 0;
+  text-align: center;
+}
+.footer-small-links a { color: #9ca3af; margin: 0 8px; text-decoration: none; }
+.footer-small-links a:hover { color: #fff; }
+.footer-text { color: #9ca3af; margin-top: 6px; font-size: 0.95rem; }

@@ -1,0 +1,11 @@
+/* src/components/AIISLogo.css */
+.aiis-logo-wrapper {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.aiis-logo-svg {
+  max-width: 95vw;
+  height: auto;
+  display: block;
+}

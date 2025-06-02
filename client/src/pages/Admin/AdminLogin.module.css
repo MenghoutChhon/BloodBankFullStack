@@ -1,0 +1,88 @@
+/* src/pages/Admin/AdminLogin.module.css */
+
+.admin-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fef3f3 0%, #e0f2fe 100%);
+  padding: 0;
+}
+
+.admin-login-box {
+  width: 100%;
+  max-width: 410px;
+  background: #fff;
+  padding: 2.2rem 2rem 2rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px 0 rgba(220,38,38,0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+form {
+  width: 100%;
+}
+
+.form-control {
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #e0e7ef;
+  transition: border-color 0.18s;
+  box-shadow: none;
+  margin-bottom: 1.25rem !important;
+}
+
+.form-control:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 0.15rem rgba(220,38,38,0.10);
+}
+
+.btn-primary {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.68rem 0;
+  font-size: 1.1rem;
+  transition: background 0.15s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #b91c1c !important;
+  border-color: #b91c1c !important;
+}
+
+.btn-link {
+  color: #1d4ed8 !important;
+  text-decoration: none !important;
+  font-size: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  color: #dc2626 !important;
+  text-decoration: underline !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .admin-login-box {
+    max-width: 99vw;
+    padding: 1.1rem 0.5rem 1.2rem 0.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}

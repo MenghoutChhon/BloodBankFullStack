@@ -1,0 +1,125 @@
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: none;
+}
+
+/* Main background for Donor Landing */
+.donor-landing-bg {
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100%;
+  background: linear-gradient(135deg, #fef3f3 0%, #e0f2fe 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+}
+
+/* Main wrapper fills all available vertical space */
+.donor-center-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  min-height: calc(100vh - 70px); /* Adjust if your header/navbar height changes */
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO Section */
+.donor-banner {
+  animation: fade-in-down 0.7s;
+  text-align: center;
+  padding: 2.5rem 1rem 2rem 1rem;
+  background: rgba(255,255,255,0.97);
+  border-radius: 22px;
+  box-shadow: 0 8px 40px 0 rgba(220,38,38,0.08);
+  margin-bottom: 2.2rem;
+  width: 95vw;
+  max-width: 640px;
+}
+
+.donor-cta-buttons {
+  display: flex;
+  gap: 1.1rem;
+  justify-content: center;
+  margin-top: 2.1rem;
+}
+
+.cta-btn {
+  font-size: 1.12rem;
+  font-weight: 600;
+  padding: 0.77em 2.2em;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 12px 0 rgba(220,38,38,0.09);
+  transition: background 0.18s, color 0.14s;
+}
+.login-btn { background: #fef3f3; color: #dc2626; }
+.register-btn { background: #e0f2fe; color: #1d4ed8; }
+.cta-btn:hover { background: #dc2626; color: #fff; }
+
+.donor-features {
+  margin-top: 2rem;
+  text-align: center;
+}
+.features-list {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+.feature-item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px 0 rgba(220,38,38,0.07);
+  padding: 1.5rem 1.2rem;
+  width: 210px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.15s, background 0.15s;
+}
+.feature-item:focus, .feature-item:hover {
+  background: #e0f2fe;
+  box-shadow: 0 6px 32px 0 rgba(37,99,235,0.13);
+}
+.feature-icon {
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+}
+.feature-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: #1d4ed8;
+}
+.feature-desc {
+  font-size: 0.98rem;
+  color: #374151;
+}
+
+/* Fade animation */
+@keyframes fade-in-down {
+  0% { opacity: 0; transform: translateY(-25px); }
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive for mobile */
+@media (max-width: 900px) {
+  .donor-banner { max-width: 100vw; }
+  .features-list { flex-direction: column; gap: 1.2rem; }
+  .feature-item { width: 95vw; min-width: unset; }
+}

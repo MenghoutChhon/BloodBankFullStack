@@ -1,0 +1,156 @@
+/* Background & Container */
+.aboutBg {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding: 80px 16px 40px;
+  box-sizing: border-box;
+}
+
+.aboutContainer {
+  background: #fff;
+  padding: 3rem 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.05);
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Typography */
+.aboutTitle {
+  font-size: 2.2rem;
+  color: #b02a2a;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.aboutSubtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #4a4a4a;
+  line-height: 1.4;
+  max-width: 550px;
+}
+
+.aboutBody {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #555;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+/* Metrics Grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.metricCard {
+  background: #fef7f7;
+  border: 1px solid #f0dede;
+  border-radius: 12px;
+  padding: 1rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.metricCard:hover {
+  box-shadow: 0 6px 18px rgb(176 42 42 / 0.25);
+}
+
+.metricIcon {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.metricValue {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #b02a2a;
+  margin-bottom: 0.25rem;
+}
+
+.metricLabel {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+}
+
+/* Sections */
+.section {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  color: #2e2e2e;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  border-bottom: 2px solid #b02a2a;
+  padding-bottom: 0.3rem;
+}
+
+.list {
+  padding-left: 1.3rem;
+  color: #444;
+  font-size: 1rem;
+  list-style-type: disc;
+  margin: 0;
+}
+
+.list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Team note */
+.teamNote {
+  margin-top: 2.5rem;
+  text-align: center;
+  color: #777;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 600px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .aboutContainer {
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 12px;
+  }
+  .aboutTitle {
+    font-size: 1.7rem;
+  }
+  .aboutSubtitle,
+  .aboutBody {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+}

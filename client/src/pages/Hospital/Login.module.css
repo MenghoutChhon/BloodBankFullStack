@@ -1,0 +1,209 @@
+/* === Fullscreen Centering Wrapper === */
+.loginWrapper {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff1f2 0%, #e0f2fe 100%);
+  padding: 1rem;
+  box-sizing: border-box;
+  animation: fadeInBg 1s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === Main Form Card === */
+.container {
+  max-width: 410px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 36px 0 rgba(220,38,38,0.11), 0 1.5px 10px 0 rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeUp 0.65s cubic-bezier(.32,1.56,.72,1) 0.12s;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px);}
+  to { opacity: 1; transform: none;}
+}
+
+.title {
+  margin-bottom: 1.6rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  color: #b91c1c;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+/* === Form Fields === */
+.formGroup {
+  width: 100%;
+  margin-bottom: 1.12rem;
+}
+.label {
+  display: block;
+  margin-bottom: 0.42rem;
+  font-weight: 600;
+  color: #b91c1c;
+  letter-spacing: 0.01em;
+  font-size: 1.04rem;
+}
+.input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.6px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 1.08rem;
+  background: #f9fafb;
+  color: #1e293b;
+  transition: border-color 0.2s, box-shadow 0.16s;
+  box-sizing: border-box;
+  outline: none;
+}
+.input:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 2px rgba(220,38,38,0.11);
+  background: #fff;
+}
+
+.pwdWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.showPwdBtn {
+  position: absolute;
+  right: 1.05rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15rem;
+  color: #b91c1c;
+  padding: 2px 4px;
+  transition: color 0.14s;
+}
+.showPwdBtn:hover:not(:disabled) { color: #ef4444; }
+.showPwdBtn:disabled { color: #ddd; cursor: not-allowed; }
+
+.button {
+  width: 100%;
+  padding: 0.85rem 0;
+  background: linear-gradient(93deg,#dc2626 50%,#ef4444 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 800;
+  font-size: 1.18rem;
+  cursor: pointer;
+  margin-top: 0.45rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px 0 rgba(220,38,38,0.04);
+  transition: background 0.19s, transform 0.12s;
+}
+.button:active { transform: scale(0.98); }
+.button:disabled {
+  background: #fca5a5;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.95;
+}
+.button:hover:not(:disabled) {
+  background: linear-gradient(100deg,#b91c1c 60%,#dc2626 100%);
+  box-shadow: 0 3px 16px 0 rgba(220,38,38,0.12);
+}
+
+/* === Message & Links === */
+.errorMsg {
+  color: #b91c1c;
+  background: #ffe4e6;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.12rem;
+  box-shadow: 0 2px 12px 0 rgba(220,38,38,0.03);
+}
+.loginBottom {
+  margin-top: 1.8rem;
+  text-align: center;
+  width: 100%;
+  font-size: 1.04rem;
+  color: #64748b;
+}
+.linkBtn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: 1rem;
+  transition: color 0.14s;
+}
+.linkBtn:hover:not(:disabled) { color: #1d4ed8; }
+.linkBtn:disabled { color: #a1a1aa; cursor: not-allowed; }
+
+/* === Focus Styles for Accessibility === */
+.button:focus,
+.linkBtn:focus,
+.showPwdBtn:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+/* === Mobile Responsiveness === */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.2rem 0.5rem;
+    max-width: 99vw;
+    border-radius: 1rem;
+  }
+  .title {
+    font-size: 1.35rem;
+    margin-bottom: 1.1rem;
+  }
+}
+@media (max-width: 400px) {
+  .container { padding: 0.7rem 0.18rem; }
+}
+
+/* === Spinner Styles === */
+.spinnerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fff;
+  border-top: 2px solid #dc2626;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  background: transparent;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinnerText {
+  font-weight: 500;
+  color: #b91c1c;
+  font-size: 1.08rem;
+}
