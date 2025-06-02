@@ -3,26 +3,71 @@
 
 ## Project Overview
 
-The Blood Donation Management System is a full-stack web application designed to streamline blood donations, donor management, inventory tracking, and hospital collaboration. Built to efficiently manage blood stocks and simplify the donation process, this system significantly enhances operational efficiency and accuracy.
+The Blood Donation Management System is a full-stack web application built to streamline blood donations, donor management, inventory tracking, and hospital collaboration. The project consists of separate frontend and backend codebases, structured for easy deployment and maintainability.
 
 ---
 
 ## Technologies Used
 
-### Frontend
+### Frontend (`/client`)
 
-* **React**: For dynamic and responsive UI components.
-* **TypeScript**: Ensures type safety and maintainability.
-* **Axios**: For HTTP requests to backend APIs.
-* **Bootstrap**: Quick and responsive design.
-* **Context API**: Global state management.
+- **React + TypeScript**: Modern, scalable, and type-safe frontend.
+- **Axios**: For HTTP requests to backend APIs.
+- **Bootstrap**: Quick, responsive design.
+- **Context API**: State management for global app state.
+- **Other Tools**: Custom hooks, layouts, and page-based routing.
 
-### Backend
+### Backend (`/server`)
 
-* **Node.js & Express**: Robust and scalable server-side logic.
-* **MongoDB & Mongoose**: NoSQL database handling.
-* **JWT (JSON Web Token)**: Secure authentication.
-* **CORS**: Cross-origin resource sharing for frontend-backend integration.
+- **Node.js & Express**: API server and backend business logic.
+- **MongoDB & Mongoose**: NoSQL database and data modeling.
+- **JWT (JSON Web Token)**: Authentication for secure access.
+- **CORS**: Safe integration of frontend and backend.
+- **dotenv**: Manage environment variables securely.
+
+---
+
+## Project Structure
+
+### Root Directory
+
+```
+BloodBankFullStack/
+├── client/    # React + TypeScript frontend app
+├── server/    # Node.js + Express + MongoDB backend
+├── README.md
+└── ...        # Other project files (e.g., .gitignore)
+```
+BloodBankFullStack/
+├── client/                # Frontend React application (TypeScript)
+│   └── client/
+│       ├── src/
+│       │   ├── components/        # Reusable UI components (Common, Donor, etc.)
+│       │   ├── contexts/          # React context providers (Auth, Theme)
+│       │   ├── hooks/             # Custom React hooks
+│       │   ├── layouts/           # Application layouts and shared UI
+│       │   ├── pages/             # Main pages grouped by user roles (Admin, Donor, Hospital)
+│       │   ├── App.tsx            # Root component
+│       │   └── ...                # Other config and setup files
+│       ├── public/                # Static assets
+│       ├── package.json           # Frontend dependencies and scripts
+│       └── README.md              # Frontend documentation
+├── server/                # Backend Node.js/Express application
+│   └── src/
+│       ├── config/               # App configuration (e.g., DB setup)
+│       ├── controllers/          # Route handler logic
+│       ├── middleware/           # Express middleware (e.g., authentication)
+│       ├── models/               # Database models/schemas
+│       ├── routes/               # Express route definitions
+│       ├── utils/                # Utility/helper functions
+│       ├── app.js                # Express app setup
+│       └── server.js             # Entry point
+│   ├── .env                      # Environment variables
+│   ├── package.json              # Backend dependencies and scripts
+│   └── README.md                 # Backend documentation
+└── README.md                # Main project documentation (you are here!)
+
+```
 
 ---
 
@@ -30,81 +75,75 @@ The Blood Donation Management System is a full-stack web application designed to
 
 ### User Roles
 
-* **Admin**: Dashboard access, donor management, hospital management, inventory oversight.
-* **Donor**: Registration, login, profile management, donation history, survey submission.
-* **Hospital**: Request blood, inventory tracking, reporting.
+- **Admin**: Dashboard access, donor and hospital management, inventory oversight.
+- **Donor**: Register, log in, manage profile, view donation history, submit surveys.
+- **Hospital**: Request blood, track inventory, generate reports.
 
-### Functionalities
+### Key Functionalities
 
-* **Authentication**: JWT-based secure login and protected routes.
-* **Inventory Management**: Real-time monitoring and reporting of blood stock levels.
-* **Donation Scheduling**: Allow donors to easily schedule and track donations.
-* **Admin Dashboard**: Comprehensive statistics, including blood units by type, donor counts, and pending requests.
-
----
-
-## Application Structure
-
-### Frontend Structure
-
-```
-src/
-├── components/
-│   ├── Common/
-│   ├── Donor/
-│   ├── Admin/
-│   └── Hospital/
-├── contexts/
-├── hooks/
-├── layouts/
-├── pages/
-│   ├── Admin/
-│   ├── Donor/
-│   └── Publics/
-└── App.tsx
-```
-
-### Backend Structure
-
-```
-server/
-├── controllers/
-├── middleware/
-├── models/
-├── routes/
-├── config/
-├── app.js
-└── .env
-```
+- **Authentication**: JWT-based secure login and route protection.
+- **Inventory Management**: Real-time blood stock tracking.
+- **Donation Scheduling**: Donors can schedule, track, and manage appointments.
+- **Admin Dashboard**: Visual stats (blood units by type, donor/hospital counts, pending requests, etc.).
 
 ---
 
-## Communication between Frontend and Backend
+## API Communication
 
-* All API requests are managed through Axios with JWT tokens for security.
-* RESTful API endpoints structured clearly for maintainability.
-* Admin authentication and protected routes secured through custom middleware.
+- Frontend (`client/`) interacts with backend (`server/`) via RESTful API endpoints.
+- All requests are authenticated (when necessary) with JWTs and managed by Axios.
+- Custom Express middleware protects sensitive backend routes.
 
 ---
 
-## Deployment & Environment
+## Deployment
 
-* Frontend hosted via static servers like Netlify or Vercel.
-* Backend deployed to cloud services such as Heroku, AWS, or DigitalOcean.
-* MongoDB hosted either locally or using MongoDB Atlas.
+- **Frontend**: Deploy via Netlify, Vercel, or any static hosting.
+- **Backend**: Deploy via Heroku, AWS, DigitalOcean, or other Node.js-friendly cloud platforms.
+- **Database**: MongoDB Atlas (cloud) or local MongoDB instance.
+
+---
+
+## Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/MenghoutChhon/BloodBankFullStack.git
+cd BloodBankFullStack
+```
+
+### 2. Set up the Backend
+
+```bash
+cd server
+cp .env.example .env
+npm install
+npm start
+```
+
+### 3. Set up the Frontend
+
+```bash
+cd ../client
+npm install
+npm start
+```
+
+---
+
+## Contribution
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## License
+
+[MIT](LICENSE) (or your chosen license)
 
 ---
 
 ## Conclusion
 
-The Blood Donation Management System enhances transparency, simplifies administration, and improves user engagement through intuitive interfaces and robust backend services. This comprehensive solution is ideal for healthcare organizations aiming to optimize blood donation processes.
-
----
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 91776ae37b499c1aecd6a12a73a3106cf11bd343
-=======
-
->>>>>>> 91776ae37b499c1aecd6a12a73a3106cf11bd343
+The Blood Donation Management System improves transparency, simplifies blood donation administration, and offers modern, user-friendly interfaces for all stakeholders.
