@@ -37,6 +37,9 @@ BloodBankFullStack/
 ├── server/    # Node.js + Express + MongoDB backend
 ├── README.md
 └── ...        # Other project files (e.g., .gitignore)
+
+---
+
 ```
 BloodBankFullStack/
 ├── client/                # Frontend React application (TypeScript)
@@ -66,7 +69,6 @@ BloodBankFullStack/
 │   ├── package.json              # Backend dependencies and scripts
 │   └── README.md                 # Backend documentation
 └── README.md                # Main project documentation (you are here!)
-
 ```
 
 ---
