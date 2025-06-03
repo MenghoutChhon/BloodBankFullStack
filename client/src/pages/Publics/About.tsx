@@ -17,8 +17,8 @@ const About: React.FC = () => (
         designed and developed by 4th-year Data Science students at the Institute of Technology of Cambodia.
       </p>
       <p className={styles.aboutBody}>
-        Our goal is to reimagine blood donation and inventory management across Cambodia. Utilizing modern web
-        technologies, our platform demonstrates how hospitals could manage blood stocks in real-time, enable seamless
+        Goal is to reimagine blood donation and inventory management across Cambodia. Utilizing modern web
+        technologies, this platform demonstrates how hospitals could manage blood stocks in real-time, enable seamless
         donor registration, and streamline the coordination of life-saving blood supplies.
       </p>
       <p className={styles.aboutBody}>
@@ -58,8 +58,7 @@ const About: React.FC = () => (
       </section>
 
       <div className={styles.teamNote}>
-        <strong>Team Lead:</strong> CHHON Menghout<br />
-        <strong>Developers:</strong> BO Sane, CHUM Ratanakchentria, CHHORN Solita, EN Srey Toch<br />
+        <strong>Developer:</strong> CHHON Menghout<br />
         <strong>Academic Year:</strong> 2024–2025
       </div>
     </div>
