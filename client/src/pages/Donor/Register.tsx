@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useAuthContext } from "../../contexts/AuthContext";
 import {
   Box,
   Paper,
@@ -10,19 +13,43 @@ import {
 
 const DonorRegister: React.FC = () => {
   const [form, setForm] = useState({
-    name: "",
+    fullName: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAuthContext();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: handle registration logic
-    alert("Registration submitted!");
+    if (
+      !form.fullName ||
+      !form.email ||
+      !form.password ||
+      form.password !== form.confirmPassword
+    ) {
+      alert("Please complete all fields and ensure passwords match.");
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const res = await axios.post("/api/donors/register", {
+        fullName: form.fullName,
+        email: form.email,
+        password: form.password,
+      });
+      login(res.data.user, res.data.token);
+      navigate("/donor/survey");
+    } catch (error) {
+      alert("Registration failed");
+    }
+    setIsLoading(false);
   };
 
   return (
@@ -52,8 +79,8 @@ const DonorRegister: React.FC = () => {
           <Stack spacing={2}>
             <TextField
               label="Full Name"
-              name="name"
-              value={form.name}
+              name="fullName"
+              value={form.fullName}
               onChange={handleChange}
               fullWidth
               required
@@ -76,6 +103,15 @@ const DonorRegister: React.FC = () => {
               fullWidth
               required
             />
+            <TextField
+              label="Confirm Password"
+              name="confirmPassword"
+              type="password"
+              value={form.confirmPassword}
+              onChange={handleChange}
+              fullWidth
+              required
+            />
             <Button
               type="submit"
               variant="contained"
@@ -83,8 +119,9 @@ const DonorRegister: React.FC = () => {
               size="large"
               sx={{ borderRadius: 2, fontWeight: 600, mt: 1 }}
               fullWidth
+              disabled={isLoading}
             >
-              Register
+              {isLoading ? "Registering..." : "Register"}
             </Button>
           </Stack>
         </form>
