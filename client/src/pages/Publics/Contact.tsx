@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
   return (
     <div className={styles.contactBg}>
       <form className={styles.contactForm} onSubmit={handleSubmit} noValidate>
-        <h2 className={styles.contactTitle}>Contact Our Team</h2>
+        <h2 className={styles.contactTitle}>Contact Me</h2>
         <div className={styles.inputGroup}>
           <label htmlFor="contact-name">Name</label>
           <input

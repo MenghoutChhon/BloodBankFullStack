@@ -184,7 +184,7 @@ const DonorSurvey: React.FC = () => {
               <ol className="donor-survey-instructions">
                 <li>Wait for a confirmation email.</li>
                 <li>Attend the donation center at your scheduled time.</li>
-                <li>Follow any instructions provided by our team.</li>
+                <li>Follow any instructions provided in the email.</li>
               </ol>
               <button
                 className="cta-btn login-btn donor-survey-btn"
