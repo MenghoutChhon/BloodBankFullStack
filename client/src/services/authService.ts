@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // CRA requires REACT_APP_* env vars defined in client/.env
-const API_URL = process.env.REACT_APP_API_BASE_URL!;
+// Fallback to relative /api for development environments
+const API_URL = process.env.REACT_APP_API_BASE_URL || '/api';
 
 export const loginHospital = async (email: string, password: string) => {
   const response = await axios.post(

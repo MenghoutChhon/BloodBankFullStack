@@ -111,6 +111,7 @@ npm start
 **3. Set up the Frontend**
 ```bash
 cd ../client
+cp .env.example .env
 npm install
 npm start
 ```
