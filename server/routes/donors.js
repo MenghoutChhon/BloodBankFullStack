@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const Donor = require("../models/Donor");
 const Booking = require("../models/Booking");
 const auth = require("../middleware/auth");
@@ -8,12 +9,13 @@ const auth = require("../middleware/auth");
 // Register
 router.post("/register", async (req, res) => {
   try {
-    const { fullName, email, password } = req.body;
-    if (!email || !password || !fullName)
+    const { fullName, email, password, blood, phone } = req.body;
+    if (!email || !password || !fullName || !blood || !phone)
       return res.status(400).json({ error: "Missing fields" });
     let donor = await Donor.findOne({ email });
     if (donor) return res.status(400).json({ error: "Donor already exists" });
-    donor = new Donor({ fullName, email, password });
+    const hashed = await bcrypt.hash(password, 10);
+    donor = new Donor({ fullName, email, password: hashed, blood, phone });
     await donor.save();
     const token = jwt.sign({ id: donor._id, role: "donor" }, process.env.JWT_SECRET);
 
@@ -32,8 +34,9 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const donor = await Donor.findOne({ email });
-    if (!donor || donor.password !== password)
-      return res.status(400).json({ error: "Invalid credentials" });
+    if (!donor) return res.status(400).json({ error: "Invalid credentials" });
+    const match = await bcrypt.compare(password, donor.password);
+    if (!match) return res.status(400).json({ error: "Invalid credentials" });
     const token = jwt.sign({ id: donor._id, role: "donor" }, process.env.JWT_SECRET);
 
     // Add .role = "donor" to returned object

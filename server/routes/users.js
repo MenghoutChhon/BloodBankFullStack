@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
 // --- Admin/User Login (for Admin Panel) ---
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    // Check user
     const user = await User.findOne({ email });
-    if (!user || user.password !== password) {
-      return res.status(400).json({ error: "Invalid credentials" });
-    }
+    if (!user) return res.status(400).json({ error: "Invalid credentials" });
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) return res.status(400).json({ error: "Invalid credentials" });
 
     // Generate JWT with user role and ID
     const token = jwt.sign(
@@ -56,7 +56,11 @@ router.get("/", async (req, res) => {
 // POST create user
 router.post("/", async (req, res) => {
   try {
-    const user = new User(req.body);
+    const data = { ...req.body };
+    if (data.password) {
+      data.password = await bcrypt.hash(data.password, 10);
+    }
+    const user = new User(data);
     await user.save();
     // Return with id field for frontend
     const obj = user.toObject();
@@ -72,7 +76,11 @@ router.post("/", async (req, res) => {
 // PUT update user
 router.put("/:id", async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const data = { ...req.body };
+    if (data.password) {
+      data.password = await bcrypt.hash(data.password, 10);
+    }
+    const user = await User.findByIdAndUpdate(req.params.id, data, { new: true });
     if (!user) return res.status(404).json({ error: "User not found" });
     const obj = user.toObject();
     obj.id = obj._id;
