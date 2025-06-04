@@ -2,8 +2,8 @@ const Booking = require('../models/Booking');
 
 exports.createBooking = async (req, res) => {
   try {
-    const { donorId, hospitalId, date, survey } = req.body;
-    const booking = new Booking({ donor: donorId || req.user.id, hospital: hospitalId, date, survey });
+    const { donorId, hospitalId, date, survey, type, units } = req.body;
+    const booking = new Booking({ donor: donorId || req.user.id, hospital: hospitalId, date, survey, type, units });
     await booking.save();
     res.status(201).json(booking);
   } catch (err) {
