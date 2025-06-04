@@ -14,6 +14,9 @@ Node.js + Express + MongoDB (Mongoose) backend for the Blood Donation System.
    MONGO_URI=mongodb://localhost:27017/blood_donation_db
    JWT_SECRET=supersecretkey
    PORT=5000
+   TWILIO_ACCOUNT_SID=your_twilio_sid
+   TWILIO_AUTH_TOKEN=your_twilio_token
+   TWILIO_FROM_NUMBER=+1234567890
    ```
 
 3. Start MongoDB locally (or use MongoDB Atlas).
@@ -24,6 +27,8 @@ Node.js + Express + MongoDB (Mongoose) backend for the Blood Donation System.
    ```
 
 API runs at http://localhost:5000/api
+
+SMS notifications are sent using [Twilio](https://www.twilio.com/). Configure `TWILIO_*` variables in `.env` for this feature.
 
 ## 📚 Endpoints
 

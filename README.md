@@ -72,6 +72,7 @@ BloodBankFullStack/
 - **Inventory Tracking**: Real-time blood stock monitoring.
 - **Donation Scheduling**: Donors schedule and manage appointments.
 - **Admin Dashboard**: Visual statistics (inventory, donors, requests, etc.).
+- **SMS Notifications**: Donors receive text messages for booking updates (via Twilio).
 
 ---
 
