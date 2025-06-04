@@ -1,10 +1,20 @@
 const Booking = require('../models/Booking');
+const Donor = require('../models/Donor');
+const sendSMS = require('../utils/sendSMS');
 
 exports.createBooking = async (req, res) => {
   try {
     const { donorId, hospitalId, date, survey } = req.body;
     const booking = new Booking({ donor: donorId || req.user.id, hospital: hospitalId, date, survey });
     await booking.save();
+    try {
+      const donor = await Donor.findById(booking.donor);
+      if (donor?.phone) {
+        await sendSMS(donor.phone, 'Your booking request has been received.');
+      }
+    } catch (err) {
+      console.error('SMS error:', err.message);
+    }
     res.status(201).json(booking);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -41,6 +51,14 @@ exports.updateBookingStatus = async (req, res) => {
     if (!booking) return res.status(404).json({ message: 'Booking not found' });
     booking.status = req.body.status;
     await booking.save();
+    try {
+      const donor = await Donor.findById(booking.donor);
+      if (donor?.phone) {
+        await sendSMS(donor.phone, `Your booking status is now: ${booking.status}`);
+      }
+    } catch (err) {
+      console.error('SMS error:', err.message);
+    }
     res.json(booking);
   } catch (err) {
     res.status(500).json({ message: err.message });
