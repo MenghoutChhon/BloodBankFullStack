@@ -18,9 +18,6 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Link to="/about" className={styles.navLink}>
               About
             </Link>
-            <Link to="/ourteam" className={styles.navLink}>
-              OurTeam
-            </Link>
             <Link to="/contact" className={styles.navLink}>
               Contact
             </Link>

@@ -14,7 +14,6 @@ import HospitalDashboard from "./pages/Hospital/HospitalDashboard";
 import Home from "./pages/Publics/Home";
 import About from "./pages/Publics/About";
 import Contact from "./pages/Publics/Contact";
-import OurTeam from "./pages/Publics/OurTeam";
 import Header from "./components/Header";
 import AdminRouter from "./pages/Admin/AdminRouter";
 
@@ -48,7 +47,6 @@ function AppRoutes() {
         {/* Public */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/ourteam" element={<OurTeam />} />
         <Route path="/contact" element={<Contact />} />
 
         {/* Donor */}

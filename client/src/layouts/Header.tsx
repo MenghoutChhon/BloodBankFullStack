@@ -40,7 +40,6 @@ const Header: React.FC = () => (
       <ul className="hidden md:flex gap-8 text-base font-medium text-gray-800">
         <li><Link to="/" className="hover:text-rose-500 transition">Home</Link></li>
         <li><Link to="/about" className="hover:text-rose-500 transition">About</Link></li>
-        <li><Link to="/ourteam" className="hover:text-rose-500 transition">Our Team</Link></li>
         <li><Link to="/contact" className="hover:text-rose-500 transition">Contact</Link></li>
       </ul>
       <div>
