@@ -20,7 +20,7 @@ Node.js + Express + MongoDB (Mongoose) backend for the Blood Donation System.
 
 4. Start backend:
    ```bash
-   npm run dev
+   npm start
    ```
 
 API runs at http://localhost:5000/api
