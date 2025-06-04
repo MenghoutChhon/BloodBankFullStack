@@ -5,6 +5,10 @@ const Donor = require("../models/Donor");
 const Hospital = require("../models/Hospital");
 const Booking = require("../models/Booking");
 const User = require("../models/User");
+const adminController = require("../controllers/adminController");
+
+// Admin authentication
+router.post("/login", adminController.login);
 
 // Secure routes with admin-only middleware
 router.get("/stats", authMiddleware(['admin']), async (req, res) => {
