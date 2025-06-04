@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const Hospital = require("../models/Hospital");
 const Booking = require("../models/Booking");
 const auth = require("../middleware/auth");
@@ -10,7 +11,13 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const hospital = await Hospital.findOne({ email });
-    if (!hospital || hospital.password !== password)
+
+    if (!hospital)
+      return res.status(400).json({ error: "Invalid credentials" });
+
+    const stored = hospital.password || "";
+    const match = await bcrypt.compare(password, stored);
+    if (!match)
       return res.status(400).json({ error: "Invalid credentials" });
 
     const token = jwt.sign({ id: hospital._id, role: "hospital" }, process.env.JWT_SECRET);
