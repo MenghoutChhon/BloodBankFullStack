@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
 });
 
 // Profile
-router.get("/me", auth, async (req, res) => {
+router.get("/me", auth(["donor"]), async (req, res) => {
   try {
     const donor = await Donor.findById(req.user.id);
     res.json(donor);
@@ -60,9 +60,13 @@ router.get("/me", auth, async (req, res) => {
 });
 
 // Update profile
-router.put("/me", auth, async (req, res) => {
+router.put("/me", auth(["donor"]), async (req, res) => {
   try {
-    const donor = await Donor.findByIdAndUpdate(req.user.id, req.body, { new: true });
+    const data = { ...req.body };
+    if (data.password) {
+      data.password = await bcrypt.hash(data.password, 10);
+    }
+    const donor = await Donor.findByIdAndUpdate(req.user.id, data, { new: true });
     res.json(donor);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -70,7 +74,7 @@ router.put("/me", auth, async (req, res) => {
 });
 
 // Donor donation history
-router.get("/me/history", auth, async (req, res) => {
+router.get("/me/history", auth(["donor"]), async (req, res) => {
   try {
     const history = await Booking.find({ donor: req.user.id })
       .populate("hospital")
@@ -82,23 +86,33 @@ router.get("/me/history", auth, async (req, res) => {
 });
 
 // Donor CRUD for admin
-router.get("/", async (req, res) => {
+router.get("/", auth(["admin", "hospital"]), async (req, res) => {
   const donors = await Donor.find();
   res.json(donors);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth(["admin", "hospital"]), async (req, res) => {
   const donor = new Donor(req.body);
   await donor.save();
   res.status(201).json(donor);
 });
 
-router.put("/:id", async (req, res) => {
-  const donor = await Donor.findByIdAndUpdate(req.params.id, req.body, { new: true });
+router.get("/:id", auth(["admin", "hospital"]), async (req, res) => {
+  const donor = await Donor.findById(req.params.id);
+  if (!donor) return res.status(404).json({ error: "Donor not found" });
   res.json(donor);
 });
 
-router.delete("/:id", async (req, res) => {
+router.put("/:id", auth(["admin", "hospital"]), async (req, res) => {
+  const data = { ...req.body };
+  if (data.password) {
+    data.password = await bcrypt.hash(data.password, 10);
+  }
+  const donor = await Donor.findByIdAndUpdate(req.params.id, data, { new: true });
+  res.json(donor);
+});
+
+router.delete("/:id", auth(["admin", "hospital"]), async (req, res) => {
   await Donor.findByIdAndDelete(req.params.id);
   res.json({ success: true });
 });
