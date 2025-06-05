@@ -1,10 +1,18 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const connectDB = require('./config/db');
 
 const app = express();
-app.use(cors());
+app.use(helmet());
+app.use(morgan('combined'));
+app.use(
+  cors({
+    origin: process.env.CLIENT_ORIGIN || '*',
+  })
+);
 app.use(express.json());
 
 // API routes
