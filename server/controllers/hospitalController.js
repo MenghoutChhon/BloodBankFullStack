@@ -3,9 +3,6 @@ const Booking = require('../models/Booking');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// Debug logs: Check if models are loaded correctly
-console.log('Hospital model:', Hospital);
-console.log('Booking model:', Booking);
 
 exports.register = async (req, res) => {
   try {
